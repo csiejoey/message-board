@@ -42,12 +42,11 @@ router.get('/', (req, res) => {
 
 router.post('/post', (req, res) => {
 	const postContent = req.body;
-	const t = new Date();
-	const time = `${(t.getDate() > 10) ? '' : '0'}${t.getDate()}.${(t.getMonth() + 1 > 10) ? '' : '0'}${t.getMonth() + 1}.${t.getFullYear()}, ${(t.getHours() > 10) ? '' : '0'}${t.getHours()}:${(t.getMinutes() > 10) ? '' : '0'}${t.getMinutes()}`;
+	
 	const newComment = {
 		// can i add id when render-mapping? 
 		username: postContent.usernameInput,
-		time,
+		time: postContent.time,
 		post: postContent.contentInput,
 		reply: [],
 	}
@@ -59,11 +58,9 @@ router.post('/post', (req, res) => {
 router.post('/reply/:id', (req, res) => {
 	const id = parseInt(req.params.id, 10);	// 十進位
 	const replyContent = req.body;
-	const t = new Date();
-	const time = `${(t.getDate() > 10) ? '' : '0'}${t.getDate()}.${(t.getMonth() + 1 > 10) ? '' : '0'}${t.getMonth() + 1}.${t.getFullYear()}, ${(t.getHours() > 10) ? '' : '0'}${t.getHours()}:${(t.getMinutes() > 10) ? '' : '0'}${t.getMinutes()}`;
 	const newReply = {
 		username: replyContent.replyNameInput,
-		time,
+		time: replyContent.time,
 		post: replyContent.replyContentInput,
 	}
 	comments[id].reply = comments[id].reply.concat(newReply);

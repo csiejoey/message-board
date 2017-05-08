@@ -34,6 +34,8 @@ class Forum extends Component {
 
 	sendPost() {
 		const { usernameInput, contentInput } = this.state;
+		const t = new Date();
+		const time = `${(t.getDate() > 10) ? '' : '0'}${t.getDate()}.${(t.getMonth() + 1 > 10) ? '' : '0'}${t.getMonth() + 1}.${t.getFullYear()}, ${(t.getHours() > 10) ? '' : '0'}${t.getHours()}:${(t.getMinutes() > 10) ? '' : '0'}${t.getMinutes()}`;
 		fetch('/api/post', {
 			method: 'post',
 			headers: {
@@ -44,6 +46,7 @@ class Forum extends Component {
 			body: JSON.stringify({
 				usernameInput,
 				contentInput,
+				time,
 			}),
 		})
 		.then(res => res.json())
@@ -64,6 +67,8 @@ class Forum extends Component {
 		const { comments } = this.state;
 		const replyNameInput = comments[postId].replyNameInput;
 		const replyContentInput = comments[postId].replyContentInput;
+		const t = new Date();
+		const time = `${(t.getDate() > 10) ? '' : '0'}${t.getDate()}.${(t.getMonth() + 1 > 10) ? '' : '0'}${t.getMonth() + 1}.${t.getFullYear()}, ${(t.getHours() > 10) ? '' : '0'}${t.getHours()}:${(t.getMinutes() > 10) ? '' : '0'}${t.getMinutes()}`;
 		fetch(`/api/reply/${postId}`, {
 			method: 'post',
 			headers: {
@@ -73,6 +78,7 @@ class Forum extends Component {
 			body: JSON.stringify({
 				replyNameInput,
 				replyContentInput,
+				time,
 			}),
 		})
 		.then(res => res.json())
@@ -187,12 +193,11 @@ class Forum extends Component {
 		)
 	}
 
-	// <div className='title'>das Forum</div>
-
 	render() {
 		return (
 			<div className='forumContainer'>
 				<div className='forum'>
+				<div className='title'>das Forum</div>
 					{this.forum()}
 				</div>
 			</div>

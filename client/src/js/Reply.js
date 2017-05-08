@@ -6,8 +6,12 @@ const { Component } = React;
 
 class Reply extends Component {
 	deleteReply() {
-		const replyId = this.props.id;
-		this.props.deleteReply(replyId);
+		const rmReply = confirm('delete reply?');
+		if(rmReply) {
+			const replyId = this.props.id;
+			this.props.deleteReply(replyId);
+		}
+		event.preventDefault();
 	}
 
 	render() {

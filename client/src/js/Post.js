@@ -8,8 +8,12 @@ const { Component } = React;
 
 class Post extends Component {
 	deletePost() {
-		const postId = this.props.id;
-		this.props.deletePost(postId);
+		const rmPost = confirm('delete post?');
+		if(rmPost) {
+			const postId = this.props.id;
+			this.props.deletePost(postId);
+		}
+		event.preventDefault();
 	}
 
 	deleteReply(replyId) {
