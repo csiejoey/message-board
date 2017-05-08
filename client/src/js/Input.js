@@ -1,23 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './../css/main.css';
 
 function Input(props) {
 	return (
-		<div>
-			<input
-				placeholder='username: '
+		<div className='input'>
+			<textarea
+				placeholder='Benutzername: '
+				cols='18'
 				value={props.username}
 				onChange={e => props.editPostName(e.target.value)}
 			/>
-			<input
-				placeholder='content: '
+			<textarea
+				placeholder='Beitrag: '
+				cols='60'
 				value={props.content}
 				onChange={e => props.editPostContent(e.target.value)}
 			/>
-			<button
+			<div
+				className='inputBtn'
 				onClick={() => props.sendContent()}>
-				send
-			</button>
+				schicken
+			</div>
 		</div>
 	)
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import Post from './Post';
 import Input from './Input';
+import './../css/main.css';
 
 const { Component } = React;
 
@@ -120,11 +121,6 @@ class Forum extends Component {
 			});
 		})
 		.catch(err => console.error(err));
-		// let { comments } = this.state;
-		// comments[postId].reply.splice(replyId, 1);
-		// this.setState({
-		// 	comments,
-		// });
 	}
 
 	editPostName(postName) {
@@ -179,6 +175,7 @@ class Forum extends Component {
 						deleteReply={(postId, replyId) => this.deleteReply(postId, replyId)}
 					/>)
 				}
+				<div className='newPost'>neu Diskussion</div>
 				<Input
 					username={this.state.usernameInput}
 					content={this.state.contentInput}
@@ -190,11 +187,14 @@ class Forum extends Component {
 		)
 	}
 
+	// <div className='title'>das Forum</div>
+
 	render() {
 		return (
-			<div>
-				<h1>das Forum</h1>
-				{this.forum()}
+			<div className='forumContainer'>
+				<div className='forum'>
+					{this.forum()}
+				</div>
 			</div>
 		)
 	}

@@ -1,0 +1,77 @@
+html, body {
+	height: 100%;
+	background-color: #BDC0BA;
+	font-family: 'Lora', serif;
+}
+
+.contentText {
+	padding-top: 7px;
+	font-size: 20px;
+}
+
+.forumContainer {
+	display: flex;
+	justify-content: center;
+}
+
+.forum {
+	width: 70%;
+	margin: 5% 0 5%;
+	padding-bottom: 25px;
+	background-color: white;
+	box-shadow: 0 1px 5px grey;
+}
+
+/*.title {
+	color: #331832;
+	text-align: center;
+	background-color: #EAE8FF;
+	font-family: 'Istok Web', sans-serif;
+	font-size: 40px;
+	line-height: 60px;
+}*/
+
+.post {
+	border-bottom: 1px solid lightgrey;
+	padding: 20px 20px 15px 25px;
+	word-break: break-all;
+}
+.postContent {
+	position: relative;
+}
+.rmPostBtn {
+	position: absolute;
+	top: 3px;
+	right: 5px;
+}
+
+/*#########reply###########*/
+
+.reply {
+	position: relative;
+	padding: 10px 0 0 60px;
+	word-break: break-all;
+}
+.rmReplyBtn {
+	position: absolute;
+	top: 3px;
+	right: 5px;
+}
+
+/*#########input##########*/
+.input {
+	display: flex;
+	justify-content: center;
+	padding: 5px;
+}
+.inputBtn {
+	background-color: lightgrey;
+	width: 100px;
+	line-height: 50px;
+	text-align: center;
+	border-radius: 0 5px 5px 0;
+}
+/*##########newPost#######*/
+.newPost {
+	padding: 20px 0 10px 30px;
+}

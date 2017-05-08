@@ -3,11 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+	"now": "micro app",
     "start": "concurrently \"npm run server\" \"npm run client\"",
     "server": "PORT=3001 node ./bin/www",
     "client": "cd client && npm run start"
   },
   "dependencies": {
+	"micro": "latest",
     "body-parser": "~1.16.0",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.0",

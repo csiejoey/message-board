@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Reply from './Reply';
 import Input from './Input';
+import './../css/main.css';
 
 const { Component } = React;
 
@@ -17,22 +18,19 @@ class Post extends Component {
 	}
 
 	render() {
-		// const len = this.props.postBody.reply.length;
-		// const replyArr = Array(len).fill().map((x, i) => i);
-		// const replyObj = this.props.postBody.reply;
-
 		const replyArr = this.props.postBody.reply;
-		// console.log('replyArr: ', replyArr);
 		return (
-			<div>
-				<div>
-					<div>{this.props.postBody.username}</div>
-					<div>{this.props.postBody.time}</div>
-					<div>{this.props.postBody.post}</div>
-					<button
-						onClick={() => this.deletePost()}>
-						deletePost
-					</button>
+			<div className='post'>
+				<div className='postContent'>
+					<div>{this.props.postBody.username} - {this.props.postBody.time}</div>
+					<div className='contentText'>{this.props.postBody.post}</div>
+					<hr />
+					<div className='rmPostBtn'>
+						<button
+							onClick={() => this.deletePost()}>
+							x
+						</button>
+					</div>
 				</div>
 					
 				{replyArr.map((x, i) =>

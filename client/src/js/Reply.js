@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './../css/main.css';
 
 const { Component } = React;
 
@@ -11,14 +12,17 @@ class Reply extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className='reply'>
 				<div>{this.props.replyBody.username}</div>
 				<div>{this.props.replyBody.time}</div>
-				<div>{this.props.replyBody.post}</div>
-				<button
-					onClick={() => this.deleteReply()}>
-					deleteReply
-				</button>
+				<div className='contentText'>{this.props.replyBody.post}</div>
+				<hr />
+				<div className='rmReplyBtn'>
+					<button
+						onClick={() => this.deleteReply()}>
+						x
+					</button>
+				</div>
 			</div>
 		)
 	}
